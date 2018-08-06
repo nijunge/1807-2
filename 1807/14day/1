@@ -1,0 +1,6 @@
+def qiuhe(a):
+	for i in (1,a+1):
+		sum =(1,a+1)
+x = int(input("求输入要求和的区间"))
+qiuhe(x)
+

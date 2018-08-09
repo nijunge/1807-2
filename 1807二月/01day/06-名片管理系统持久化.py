@@ -1,5 +1,5 @@
 list = []
-f = open("data.data","r") 
+f = open("data.data","r")
 content = f.read()
 if len(content) != 0:
 	list = eval(content)
@@ -7,4 +7,4 @@ if len(content) != 0:
 		for k,v in i.items():
 			print(k,v)
 	print(list)
-f.close
+f.close()

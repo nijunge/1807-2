@@ -1,5 +1,5 @@
 import pygame
-
+from MySprite import *
 pygame.init()
 
 clock = pygame.time.Clock()
@@ -16,15 +16,25 @@ screen.blit(bg,(0,0))
 hero = pygame.image.load("./images/hero.gif")
 screen.blit(hero,(200,500))
 pygame.display.update()
-
+enemy = EnemySprite()
+enemy1 = EnemySprite()
+enemy1.rect.x = 50
+enemy1.speed = 2
+enemy_group = pygame.sprite.Group(enemy,enemy1)
 while True:
 	clock.tick(100)
-	print(i)
 	i += 1
 	hero_rect.y -= 1
 	if hero_rect.bottom <= 0:
 		hero_rect.top = 700
 	screen.blit(bg,(0,0))
 	screen.blit(hero,hero_rect)
+	for event in pygame.event.get():
+		if event.type == pygame.QUIT:
+			print("退出游戏...")
+			pygame.quit()
+			exit()
+	enemy_group.update()
+	enemy_group.draw(screen)
 	pygame.display.update()
 pygame.quit()
